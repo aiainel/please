@@ -9,22 +9,22 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         File fileStudents =new File("students.txt");
         File fileTeachers =new File("teachers.txt");
-        Scanner scanner=new Scanner(fileStudents);
-        Scanner scanner2=new Scanner(fileTeachers);
+        Scanner sc=new Scanner(fileStudents);
+        Scanner sc2=new Scanner(fileTeachers);
         School school=new School();
 
 
         try {
-            while (scanner.hasNextLine()) {
-                String name = scanner.next();
-                String surname = scanner.next();
-                int age = Integer.parseInt(scanner.next());
-                String gender = scanner.next();
+            while (sc.hasNextLine()) {
+                String name = sc.next();
+                String surname = sc.next();
+                int age = Integer.parseInt(sc.next());
+                String gender = sc.next();
                 boolean genderBool;
                 genderBool = gender.equals("Female");
                 Student student = new Student(name, surname, age, genderBool);
-                while (scanner.hasNextInt()) {
-                    student.addGrade(Integer.parseInt(scanner.next()));
+                while (sc.hasNextInt()) {
+                    student.addGrade(Integer.parseInt(sc.next()));
                 }
                 school.addMember(student);
             }
@@ -35,14 +35,14 @@ public class Main {
 
 
         try {
-            while (scanner2.hasNextLine()) {
-                String name = scanner2.next();
-                String surname = scanner2.next();
-                int age = Integer.parseInt(scanner2.next());
-                String gender = scanner2.next();
-                String subject = scanner2.next();
-                int yearsOfExperience = Integer.parseInt(scanner2.next());
-                int salary = Integer.parseInt(scanner2.next());
+            while (sc2.hasNextLine()) {
+                String name = sc2.next();
+                String surname = sc2.next();
+                int age = Integer.parseInt(sc2.next());
+                String gender = sc2.next();
+                String subject = sc2.next();
+                int yearsOfExperience = Integer.parseInt(sc2.next());
+                int salary = Integer.parseInt(sc2.next());
                 boolean genderBool;
                 genderBool = gender.equals("Female");
                 Teacher teacher = new Teacher(name, surname, age, genderBool, subject, yearsOfExperience, salary);
